@@ -10,11 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            print("Timer fired!")
+        }
+        
     }
 
-
-}
+    
+    @objc func fireTimer() {
+        print("Timer fired!")
+    }}
 
