@@ -15,14 +15,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+    }
+
+    @IBAction func startButton(_ sender: Any) {
+        startTimer()
+    }
+    
+    func startTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             print("Timer fired!")
         }
-        
     }
-
     
-    @objc func fireTimer() {
-        print("Timer fired!")
-    }}
+}
 

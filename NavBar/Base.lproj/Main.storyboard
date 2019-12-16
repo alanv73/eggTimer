@@ -21,7 +21,11 @@
                                 <items>
                                     <navigationItem title="Egg Timer" id="KaT-Ol-b84">
                                         <barButtonItem key="leftBarButtonItem" systemItem="pause" id="M2P-VA-EgE"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="7Yb-oY-11j"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="7Yb-oY-11j">
+                                            <connections>
+                                                <action selector="startTimer:" destination="BYZ-38-t0r" id="u8s-4Z-qle"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
