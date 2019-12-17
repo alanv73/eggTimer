@@ -11,67 +11,68 @@ import UIKit
 class ViewController: UIViewController {
 
     var timer = Timer()
-    var counter:Int = 210
+    var seconds:Int = 210
     
-    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var lblTimer: UILabel!
     
-    @IBAction func playButton(_ sender: Any) {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.processTimer), userInfo: nil, repeats: true)
+    @IBAction func btnPlay(_ sender: Any) {
+        if !timer.isValid {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.tickDown), userInfo: nil, repeats: true)
+        }
     }
     
     
-    @IBAction func pauseBtn(_ sender: Any) {
+    @IBAction func btnPause(_ sender: Any) {
         timer.invalidate()
     }
     
-    @IBAction func addToCounter(_ sender: Any) {
+    @IBAction func btnPlusTen(_ sender: Any) {
         // Increase timer counter by 10
-        if counter <= 200 {
-            counter = counter + 10
+        if seconds <= 200 {
+            seconds = seconds + 10
             
-            setLabelText()
+            updateLabel()
         }
     }
     
-    @IBAction func subtractFromCounter(_ sender: Any) {
+    @IBAction func btnMinusTen(_ sender: Any) {
         // Decrease timer counter by 10
-        if counter >= 10 {
-            counter = counter - 10
+        if seconds >= 10 {
+            seconds = seconds - 10
             
-            setLabelText()
+            updateLabel()
         }
     }
     
-    @IBAction func resetCounter(_ sender: Any) {
-        // Reset timer counter to 210
+    @IBAction func btnReset(_ sender: Any) {
+        // Reset timer to 210 (3-1/2 minutes)
         
-        counter = 210
+        seconds = 210
         
-        setLabelText()
+        updateLabel()
     }
     
-    @objc func processTimer() {
-        if counter > 0 {
-            counter -= 1
+    @objc func tickDown() {
+        if seconds > 0 {
+            seconds -= 1
         
-            setLabelText()
+            updateLabel()
         } else {
             timer.invalidate()
         }
     }
     
-    func setLabelText() {
-        counterLabel.text = String(counter)
+    func updateLabel() {
+        let min = seconds / 60
+        let sec = seconds % 60
+        let minsec = String(format: "%02d:%02d", min, sec)
+        lblTimer.text = String(minsec)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabelText()
+        updateLabel()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
 }
 
