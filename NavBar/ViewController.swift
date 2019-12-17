@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnPlusTen(_ sender: Any) {
-        // Increase timer counter by 10
+        // Increase timer by 10 secs
         if seconds <= 200 {
             seconds = seconds + 10
             
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnMinusTen(_ sender: Any) {
-        // Decrease timer counter by 10
+        // Decrease timer by 10 secs
         if seconds >= 10 {
             seconds = seconds - 10
             
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnReset(_ sender: Any) {
-        // Reset timer to 210 (3-1/2 minutes)
+        // Reset timer to 210 (03:30 minutes)
         
         seconds = 210
         
